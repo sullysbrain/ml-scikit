@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/scottsullivan/Documents/myCoding/ml-scikit/mlruns/0/9d81224e1c7440d6823abbe36e88c66e/artifacts
+end_time: 1693450794519
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9d81224e1c7440d6823abbe36e88c66e
+run_name: monumental-steed-921
+run_uuid: 9d81224e1c7440d6823abbe36e88c66e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693450790092
+status: 3
+tags: []
+user_id: scottsullivan
