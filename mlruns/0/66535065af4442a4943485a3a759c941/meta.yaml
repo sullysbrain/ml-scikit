@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/scottsullivan/Documents/myCoding/ml-scikit/mlruns/0/66535065af4442a4943485a3a759c941/artifacts
+end_time: 1693448040202
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 66535065af4442a4943485a3a759c941
+run_name: auspicious-deer-707
+run_uuid: 66535065af4442a4943485a3a759c941
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693448034586
+status: 3
+tags: []
+user_id: scottsullivan
