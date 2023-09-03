@@ -5,6 +5,12 @@ name = "pypi"
 
 [packages]
 mlflow = "*"
+pandas = "*"
+scikit-learn = "*"
+numpy = "*"
+xgboost = "*"
+scipy = "*"
+shap = "*"
 
 [dev-packages]
 
