@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/scottsullivan/Documents/myCoding/ml-scikit/mlruns/0/6802872c8f9347238ed2045b54e9d041/artifacts
+end_time: 1693882976520
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6802872c8f9347238ed2045b54e9d041
+run_name: defiant-loon-357
+run_uuid: 6802872c8f9347238ed2045b54e9d041
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1693882972660
+status: 3
+tags: []
+user_id: scottsullivan

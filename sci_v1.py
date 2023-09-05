@@ -100,7 +100,8 @@ if __name__ == "__main__":
 
     # Save figures
     fig.savefig("ElasticNet-paths.png")
-
+    plt.show()
+    
     # Close plot
     plt.close(fig)
 
