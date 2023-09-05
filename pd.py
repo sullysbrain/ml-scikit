@@ -64,7 +64,7 @@ X, y = user_retention_dataset()
 model = fit_xgboost(X, y)
 
 
-
+## The SHAP values for a single sample
 import shap
 explainer = shap.Explainer(model)
 shap_values = explainer(X)
