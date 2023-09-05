@@ -6,7 +6,6 @@ import xgboost
 
 class FixableDataFrame(pd.DataFrame):
     """ Helper class for manipulating generative models """
-
     def __init__(self, *args, fixed={}, **kwargs):
         self.__dict__["__fixed_var_dictionary"] = fixed
         super(FixableDataFrame, self).__init__(*args, **kwargs)
@@ -28,7 +27,7 @@ def generator(n, fixed={}, seed=0):
     X["Product need"] = (X["Sales calls"] * 0.1 + np.random.normal(0, 1, size=(n,)))
     X["Discount"] = ((1-scipy.special.expit(X["Product need"])) * 0.5 + 0.5 * np.random.uniform(0, 1, size=(n,))) / 2
     X["Monthly usage"] = scipy.special.expit(X["Product need"] * 0.3 + np.random.normal(0, 1, size=(n,)))
-    X["Ad spend"] = X["Monthly usage"] * np.random.uniform(0.99, 0.9, size=(n,)) + (X["Last upgrade"] < 1) + (X["Last upgrade"] < 2)
+    X["Ad spend"] = X["Monthly usage"] * np.random.uniform(0.19, 0.9, size=(n,)) + (X["Last upgrade"] < 1) + (X["Last upgrade"] < 2)
     X["Bugs faced"] = np.array([np.random.poisson(v*2) for v in X["Monthly usage"]])
     X["Bugs reported"] = (X["Bugs faced"] * scipy.special.expit(X["Product need"])).round()
     X["Did renew"] = scipy.special.expit(7 * (
@@ -47,17 +46,17 @@ def generator(n, fixed={}, seed=0):
     return X
 
 def user_retention_dataset():
-    n = 10000
+    n = 5000
     X_full = generator(n)
     y = X_full["Did renew"]
     X = X_full.drop(["Did renew", "Product need", "Bugs faced"], axis=1)
     return X,y
 
 def fit_xgboost(X, y):
-    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.3)
     dtrain = xgboost.DMatrix(X_train, label=y_train)
     dtest = xgboost.DMatrix(X_test, label=y_test)
-    model = xgboost.train({"eta": 0.001, "subsample": 0.5, "max_depth": 2, "objective": "reg:logistic"}, dtrain, 1000,num_boost_round=200000, evals=[(dtest, "test")], early_stopping_rounds=20, verbose_eval=False)
+    model = xgboost.train({"eta": 0.001, "subsample": 0.5, "max_depth": 2, "objective": "reg:logistic"}, dtrain, 1000,num_boost_round=200000, evals=[(dtest, "test")], early_stopping_rounds=25, verbose_eval=False)
     return model
 
 X, y = user_retention_dataset()
