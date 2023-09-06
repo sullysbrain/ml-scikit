@@ -5,8 +5,13 @@ import numpy as np
 s = pd.Series(np.random.randn(1000))
 
 # generate a mask of values between 0 and 0.25
-mask = (s > 0) & (s < 0.25)
+#mask = (s > 0) & (s < 0.25)
+#print([mask][0:10])
+#print(s)
 
-# select first 10 values in s between 0 and 0.25   
-print(s[mask][0:10])
+train_pd = pd.read_csv("_data/train.csv")
+
+print(train_pd.head())
+
+
 
