@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import glob
 
 # generate a 1000 row pandas series in python
 s = pd.Series(np.random.randn(1000))
@@ -9,9 +10,12 @@ s = pd.Series(np.random.randn(1000))
 #print([mask][0:10])
 #print(s)
 
-train_pd = pd.read_csv("_data/train.csv")
+files = glob.glob("_data/*.csv")
 
-print(train_pd.head())
+pd = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+
+
+print(pd.head())
 
 
 
